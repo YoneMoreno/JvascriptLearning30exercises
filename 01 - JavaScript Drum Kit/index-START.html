@@ -63,7 +63,11 @@ function removeAnimation(key){
     key.classList.remove('playing');
 }
 
-  window.addEventListener('keydown', function(e){
+let addAnimation = function (key) {
+    key.classList.add('playing');
+};
+
+window.addEventListener('keydown', function(e){
       let keys = document.querySelectorAll('.key');
       keys.forEach(function(key){
           key.addEventListener('transitionend', removeAnimation(key));
@@ -71,11 +75,10 @@ function removeAnimation(key){
 
       let audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
       let key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-      console.log(key);
       if(!audio) return; //We exit the function if there is no sound to play
       audio.currentTime = 0; //We rewind the track if it is currently been playing.
       audio.play();
-      key.classList.add('playing');
+      addAnimation(key);
   });
 
 </script>
