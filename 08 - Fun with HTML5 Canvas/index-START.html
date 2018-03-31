@@ -25,14 +25,17 @@
         if (!isDrawing) return; //Stop the function if the user has not pressed left mouse button.
         console.log(e);
         ctx.beginPath();
-        ctx.moveTo(lastX,lastY);
+        ctx.moveTo(lastX, lastY);
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
         [lastX, lastY] = [e.offsetX, e.offsetY];
     }
 
+    window.addEventListener('mousedown', (e) => {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
     window.addEventListener('mousemove', draw);
-    window.addEventListener('mousedown', () => isDrawing = true);
     window.addEventListener('mouseup', () => isDrawing = false);
     window.addEventListener('mouseout', () => isDrawing = false);
 </script>
