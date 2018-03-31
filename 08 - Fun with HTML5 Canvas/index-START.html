@@ -24,6 +24,10 @@
     function draw(e) {
         if (!isDrawing) return; //Stop the function if the user has not pressed left mouse button.
         console.log(e);
+        ctx.beginPath();
+        ctx.moveTo(lastX,lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
     }
 
     window.addEventListener('mousemove', draw);
