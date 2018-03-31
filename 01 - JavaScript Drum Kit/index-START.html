@@ -59,14 +59,14 @@
 
 <script>
 
-
+function removeAnimation(key){
+    key.classList.remove('playing');
+}
 
   window.addEventListener('keydown', function(e){
       let keys = document.querySelectorAll('.key');
       keys.forEach(function(key){
-          key.addEventListener('transitionend', function(e){
-              key.classList.remove('playing');
-          });
+          key.addEventListener('transitionend', removeAnimation(key));
       });
 
       let audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
