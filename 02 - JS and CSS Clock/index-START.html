@@ -71,7 +71,13 @@
   </style>
 
   <script>
+function setDate(){
+    let now = new Date();
+    let seconds = now.getSeconds();
+    console.log(seconds);
+}
 
+setInterval(setDate, 1000);
 
   </script>
 </body>
