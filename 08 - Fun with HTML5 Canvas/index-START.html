@@ -28,9 +28,7 @@
         ctx.moveTo(lastX,lastY);
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
-
-        lastX = e.offsetX;
-        lastY = e.offsetY;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
     }
 
     window.addEventListener('mousemove', draw);
