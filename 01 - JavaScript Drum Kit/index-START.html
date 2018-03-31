@@ -59,14 +59,23 @@
 
 <script>
 
+
+
   window.addEventListener('keydown', function(e){
+      let keys = document.querySelectorAll('.key');
+      keys.forEach(function(key){
+          key.addEventListener('transitionend', function(e){
+              key.classList.remove('playing');
+          });
+      });
+
       let audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-      let keys = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-      console.log(keys);
+      let key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      console.log(key);
       if(!audio) return; //We exit the function if there is no sound to play
       audio.currentTime = 0; //We rewind the track if it is currently been playing.
       audio.play();
-      keys.classList.add('playing');
+      key.classList.add('playing');
   });
 
 </script>
