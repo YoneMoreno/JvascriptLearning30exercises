@@ -61,7 +61,11 @@
 
 
     // 7. sort Exercise
-    // Sort the people alphabetically by last name
+    // Sort the people alphabetically by  name
+    const arrayOfPeople = people.map(person => person.split(', '));
+    console.table(arrayOfPeople);
+    const sortedByName = arrayOfPeople.sort((person1, person2) => person1[1] < person2[1] ? -1 : 1);
+    console.table(sortedByName);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
