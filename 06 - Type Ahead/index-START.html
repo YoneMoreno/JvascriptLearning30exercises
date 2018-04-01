@@ -31,13 +31,15 @@
     }
 
     function displayMatches(e) {
-        console.log(e.target.value);
+        const matchedArray = findMatches(e.target.value, cities);
+        console.log(matchedArray);
     }
 
     const search = document.querySelector('.search');
     const suggestions = document.querySelector('.suggestions');
 
     search.addEventListener('change', displayMatches);
+    search.addEventListener('keyup', displayMatches);
 </script>
 </body>
 </html>
